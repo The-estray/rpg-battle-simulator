@@ -25,8 +25,3 @@ class Mage extends Character{
         }
     }
 }
-
-$mage1 = new Mage('Alex',100,50,50,100,35);
-$mage2 = new Mage('Gor',100,50,50,100,35);
-
-echo $mage1->attack($mage2);
