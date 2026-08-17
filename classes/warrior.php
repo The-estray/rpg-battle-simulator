@@ -1,5 +1,5 @@
 <?php 
-require_once 'Character.php';
+require_once 'character.php';
 
 class Warrior extends Character{
     protected int $critChance;

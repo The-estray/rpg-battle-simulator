@@ -48,7 +48,7 @@ class Character{
     public function attack(object $target): string
     {
         $damage = $target->takeDamage($this->attackPower);
-        return "{$this->name} attacked {$target->getName()}, {$this->name} dealt {$damage} damage to {$target->getName()}";
+        return "⚔️ {$this->name} атакует {$target->getName()} и наносит {$damage} урона!";
     }
 
     public function getName()

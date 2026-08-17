@@ -17,22 +17,31 @@ class Arena{
 
     public function startFight()
     {
+        echo "⚔️ ДА НАЧНЕТСЯ БИТВА: {$this->fighter1->getName()} ПРОТИВ {$this->fighter2->getName()}! ⚔️\n";
+        usleep(800000);
+
         while ($this->fighter1->isAlive() && $this->fighter2->isAlive()) {
             echo "\n=== РАУНД {$this->round} ===\n";
-            echo $this->fighter1->attack($this->fighter2);
-            if ($this->fighter2->isAlive()) {
-                echo $this->fighter2->attack($this->fighter1);
-                $this->round++;
-            }
-            else {
+            usleep(500000);
+            echo $this->fighter1->attack($this->fighter2) . "\n";
+            usleep(500000);
+
+            if (!$this->fighter2->isAlive()) {
                 break;
             }
+
+            echo $this->fighter2->attack($this->fighter1) . "\n";
+            usleep(500000);
+            $this->round++;
         }
 
+        echo "\n==============================\n";
+        usleep(500000);
         if ($this->fighter1->isAlive()) {
-            echo "Победил {$this->fighter1->getName()}🎉\n";
+            echo "🏆 ПОБЕДИЛ {$this->fighter1->getName()}!\n";
         } else {
-            echo "Победил {$this->fighter2->getName()}🎉\n";
+            echo "🏆 ПОБЕДИЛ {$this->fighter2->getName()}!\n";
         }
+        echo "==============================\n";
     }
 }
