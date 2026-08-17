@@ -20,10 +20,3 @@ class Warrior extends Character{
         else return parent::attack($target);
     }
 }
-
-$warrior = new Warrior('Alex',100,50,50,40);
-$warrior1 = new Warrior('Gor',100,50,50,40);
-
-echo $warrior->attack($warrior1) . "\n";
-echo $warrior->attack($warrior1) . "\n";
-echo $warrior->attack($warrior1) . "\n";
