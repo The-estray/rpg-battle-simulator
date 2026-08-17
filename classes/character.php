@@ -1,5 +1,8 @@
 <?php
 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 class Character{
     public string $name;
     protected int $health;
@@ -25,6 +28,7 @@ class Character{
 
         elseif ($this->defense < $rawDamage) {
             $rawDamage -= $this->defense;
+            $this->defense = 0;
             if ($this->health >= $rawDamage) {
                 $this->health -= $rawDamage;
                 return $rawDamage;
@@ -44,7 +48,7 @@ class Character{
     public function attack(object $target): string
     {
         $damage = $target->takeDamage($this->attackPower);
-        return "{$this->name} attacked {$target->getname()}, {$this->name} dealt {$damage} damage to {$target->getname()}";
+        return "{$this->name} attacked {$target->getName()}, {$this->name} dealt {$damage} damage to {$target->getName()}";
     }
 
     public function getName()
